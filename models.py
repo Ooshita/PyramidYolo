@@ -145,12 +145,13 @@ class YOLOLayer(nn.Module):
 
 class Darknet(nn.Module):
     def __init__(self):
-        self.conv1 = nn.Conv2d(self, 448, 112, 3)
-        self.conv2 = nn.Conv2d(self, 112, 56, 3)
-        self.conv3 = nn.Conv2d(self, 56, 28, 3)
-        self.conv4 = nn.Conv2d(self, 28, 14, 3)
-        self.conv5 = nn.Conv2d(self, 14, 7, 3)
-        self.conv6 = nn.Conv2d(self, 7, 14, 3)
+        super(Darknet, self).__init__()
+        self.conv1 = nn.Conv2d(448, 112, 3)
+        self.conv2 = nn.Conv2d(112, 56, 3)
+        self.conv3 = nn.Conv2d(56, 28, 3)
+        self.conv4 = nn.Conv2d(28, 14, 3)
+        self.conv5 = nn.Conv2d(14, 7, 3)
+        self.conv6 = nn.Conv2d(7, 14, 3)
     
     def forward(self, x):
         x = self.conv1(x)
